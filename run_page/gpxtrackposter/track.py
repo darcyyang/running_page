@@ -53,6 +53,7 @@ class Track:
         self.start_latlng = []
         self.type = "Run"
         self.device = ""
+        self.name = ""
 
     def load_gpx(self, file_name):
         """
@@ -192,8 +193,10 @@ class Track:
         polyline_container = []
         heart_rate_list = []
         for t in gpx.tracks:
-            if (self.name is None):
-                self.name = f"{t.name} "
+            print(f"display track name {t.name}")
+
+            # if (self.name is None):
+            #     self.name = f"{t.name} "
             for s in t.segments:
                 try:
                     extensions = [
