@@ -66,6 +66,7 @@ class Track:
             if os.path.getsize(file_name) == 0:
                 raise TrackLoadError("Empty GPX file")
             with open(file_name, "r", encoding="utf-8", errors="ignore") as file:
+                print(f"start opening {file_name}")
                 self._load_gpx_data(mod_gpxpy.parse(file))
         except Exception as e:
             print(
@@ -180,8 +181,7 @@ class Track:
         self.start_time, self.end_time = gpx.get_time_bounds()
         # use timestamp as id
         self.run_id = self.__make_run_id(self.start_time)
-        # self.name = 
-        print(f"parse gpx name for display: {gpx.to_xml} ")
+        # print(f"parse gpx name for display: {self.run_id}")
         if self.start_time is None:
             raise TrackLoadError("Track has no start time.")
         if self.end_time is None:
@@ -194,7 +194,8 @@ class Track:
         heart_rate_list = []
         for t in gpx.tracks:
             # print(f"display track name {t.name}")
-            if (self.name is None):
+            if (self.name == ""):
+                print(f"display track name {t.name}")
                 self.name = f"{t.name}"
             for s in t.segments:
                 try:

@@ -27,6 +27,7 @@ log = logging.getLogger(__name__)
 def load_gpx_file(file_name):
     """Load an individual GPX file as a track by using Track.load_gpx()"""
     t = Track()
+    print(f"tracking start {file_name}")
     t.load_gpx(file_name)
     return t
 
@@ -69,7 +70,7 @@ class TrackLoader:
     def load_tracks(self, data_dir, file_suffix="gpx"):
         """Load tracks data_dir and return as a List of tracks"""
         file_names = [x for x in self._list_data_files(data_dir, file_suffix)]
-        print(f"{file_suffix.upper()} files: {len(file_names)}")
+        print(f"!!!!!{file_suffix.upper()} files: {len(file_names)}")
 
         tracks = []
 
