@@ -333,11 +333,11 @@ class Track:
     def to_namedtuple(self, run_from="gpx"):
         d = {
             "id": self.run_id,
-            "nameVersion": (
-                f"run from {run_from} by {self.device}"
-                if self.device
-                else f"run from {run_from}"
-            ),  # maybe change later
+            # "nameVersion": (
+            #     f"run from {run_from} by {self.device}"
+            #     if self.device
+            #     else f"run from {run_from}"
+            # ),  # maybe change later
             "name": self.name + {self.device},
             "type": "Run",  # Run for now only support run for now maybe change later
             "start_date": self.start_time.strftime("%Y-%m-%d %H:%M:%S"),
