@@ -12,7 +12,7 @@ interface ISiteMetadataResult {
 const data: ISiteMetadataResult = {
   siteTitle: 'DarcyYang Running Page',
   siteUrl: 'https://dreamforce.tech',
-  logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtc69JxHNcmN1ETpMUX4dozAgAN6iPjWalQ&usqp=CAU',
+  logo: 'https://dreamforce.tech/wp-content/uploads/2024/04/cropped-Designer-logo-192x192.png',
   description: 'Personal site and blog',
   navLinks: [
     {
@@ -21,7 +21,7 @@ const data: ISiteMetadataResult = {
     },
     {
       name: 'About',
-      url: 'https://dreamforce.tech',
+      url: 'https://dreamforce.tech/messages',
     },
   ],
 };
