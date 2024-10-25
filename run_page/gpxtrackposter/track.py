@@ -193,10 +193,9 @@ class Track:
         polyline_container = []
         heart_rate_list = []
         for t in gpx.tracks:
-            print(f"display track name {t.name}")
-
-            # if (self.name is None):
-            #     self.name = f"{t.name} "
+            # print(f"display track name {t.name}")
+            if (self.name is None):
+                self.name = f"{t.name}"
             for s in t.segments:
                 try:
                     extensions = [
