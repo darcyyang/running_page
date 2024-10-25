@@ -179,8 +179,8 @@ class Track:
         self.start_time, self.end_time = gpx.get_time_bounds()
         # use timestamp as id
         self.run_id = self.__make_run_id(self.start_time)
-        self.name = gpx.name
-        print(f"parse gpx name for display:  {gpx.name} ")
+        # self.name = 
+        print(f"parse gpx name for display: {gpx.to_xml} ")
         if self.start_time is None:
             raise TrackLoadError("Track has no start time.")
         if self.end_time is None:
@@ -192,6 +192,8 @@ class Track:
         polyline_container = []
         heart_rate_list = []
         for t in gpx.tracks:
+            if (self.name is None):
+                self.name = f"{t.name} "
             for s in t.segments:
                 try:
                     extensions = [
@@ -340,7 +342,7 @@ class Track:
             #     if self.device
             #     else f"run from {run_from}"
             # ),  # maybe change later
-            "name": self.name + {self.device},
+            "name": self.name,
             "type": "Run",  # Run for now only support run for now maybe change later
             "start_date": self.start_time.strftime("%Y-%m-%d %H:%M:%S"),
             "end": self.end_time.strftime("%Y-%m-%d %H:%M:%S"),
